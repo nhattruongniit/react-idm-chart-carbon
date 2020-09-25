@@ -1,9 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// assets
-import LogoImage from 'assets/images/logo.svg';
-
 // components
 import Heading from './Heading';
 
@@ -11,8 +8,7 @@ export default function Header() {
   return (
     <HeaderStyled>
       <HeaderLogo>
-        <img src={LogoImage} alt="Logo" title="Logo" />
-        <Heading text="CHART EDITOR" />
+        <Heading text="REACT CHART CARBON DESIGN" />
       </HeaderLogo>
     </HeaderStyled>
   );

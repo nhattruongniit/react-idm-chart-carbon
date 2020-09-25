@@ -14,11 +14,11 @@ const PlottedVariableList = () => {
     <>
       <TitleStyled>Selected Variables / Sections</TitleStyled>
       <SelectedStyled>
-        {plottedVariables.map((variable, idx) => (
+        {plottedVariables.map((variable) => (
           <CheckboxField
-            key={idx}
+            key={variable.id}
             id={`section-${variable.id.toString()}`}
-            labelText="Environment:Site Outdoor Air Drybulb Temperature [C](Hourly) utdoor Air Drybulb Temperature [C](Hourly)"
+            labelText={variable.full_name}
             defaultChecked
             disabled
             onClick={() => console.log('click')}

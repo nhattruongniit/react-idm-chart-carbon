@@ -1,5 +1,7 @@
 # REACT IBM CHART
 
+![chart](public/assets/images/chart.png)
+
 ## FE
 
 - react

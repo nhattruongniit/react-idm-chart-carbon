@@ -16,14 +16,13 @@ import SelectField from 'components/SelectField';
 import { setFilter, resetFilter, togglePlottedVariable } from 'reducer/variables.reducer';
 
 // selector
-import { unitsSelector, variablesSelector, plottedVariablesSelector, selectedPlottedSelector } from 'selectors/variables.selector';
+import { variablesSelector, plottedVariablesSelector, selectedPlottedSelector } from 'selectors/variables.selector';
 import { chartOptionTabSelector } from 'selectors/tabs.selector';
 
-const steps = ['all', 'detailed', 'timestep', 'hourly', 'daily', 'monthly', 'runperiod', 'environment', 'annual'];
+const types = ['all', 'food', 'meat'];
 
 const VariablePanel = () => {
   const dispatch = useDispatch();
-  const units = useSelector(unitsSelector);
   const variables = useSelector(variablesSelector);
   const plottedVariables = useSelector(plottedVariablesSelector);
   const selectedPlotted = useSelector(selectedPlottedSelector);
@@ -60,15 +59,9 @@ const VariablePanel = () => {
       </HeaderStyled>
 
       <FilterStyled>
-        <SelectField id="select-variables-step" labelText="Step" width="40%" onChange={(e) => onFilter(e, 'step')}>
-          {steps.map((step, idx) => (
+        <SelectField id="select-variables-step" labelText="Type" width="40%" onChange={(e) => onFilter(e, 'step')}>
+          {types.map((step, idx) => (
             <SelectItem key={idx} value={step} text={step} />
-          ))}
-        </SelectField>
-        <SelectField id="select-variables-units" labelText="Units" width="40%" onChange={(e) => onFilter(e, 'units')}>
-          <SelectItem value="all" text="All" />
-          {units.map((unit, idx) => (
-            <SelectItem key={idx} value={unit} text={unit} />
           ))}
         </SelectField>
       </FilterStyled>
@@ -91,7 +84,7 @@ const VariablePanel = () => {
 export default VariablePanel;
 
 const ContainerStyled = styled.div`
-  width: 430px;
+  flex: 0 0 430px;
   height: 100%;
   padding: 20px 15px 0;
   background: #ffffff 0% 0% no-repeat padding-box;
