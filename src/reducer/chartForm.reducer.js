@@ -13,7 +13,7 @@ const CLEAR_FORM = 'CHART_FORM/CLEAR_FORM';
 export const submitForm = (formValues) => async (dispatch, getState) => {
   const { plottedVariable } = getState().variables;
   const chartType = getState().chart.type;
-  let fetchValuesFn;
+  let fetchValuesFn = null;
 
   if (plottedVariable.length === 0) {
     toast('Selected variables must have same type', {
@@ -26,6 +26,8 @@ export const submitForm = (formValues) => async (dispatch, getState) => {
     fetchValuesFn = fetchValuesForPieChart;
     dispatch({ type: SET_FORM_VALUE_PIE, payload: { formValues } });
   }
+
+  if (typeof fetchValuesFn !== 'function') return;
 
   const { chartValues, labels } = await fetchValuesFn(getState);
 

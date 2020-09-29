@@ -56,9 +56,6 @@ export const variables = [
   {
     full_name: 'bread',
     id: 10,
-    is_meter: 0,
-    name: 'ZN_1_FLR_1_SEC_3,Zone Heating Setpoint Not Met Time',
-    simulation_id: 9,
     type: 'food',
     units: 'hr',
   },
