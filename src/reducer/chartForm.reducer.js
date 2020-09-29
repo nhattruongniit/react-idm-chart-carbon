@@ -1,5 +1,5 @@
-import fetchValuesForPieChart from 'helpers/fetchValuesForPieChart';
 import { toast } from 'react-toastify';
+import { fetchValuesForPieChart } from 'helpers';
 
 import { setChartValues } from './chartValues.reducer';
 import { LOAD_INITIAL_STATE, RESTORE_STATE } from './tabs.reducer';

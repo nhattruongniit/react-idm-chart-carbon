@@ -79,4 +79,5 @@ const Content = styled.div`
   z-index: 9;
   display: flex;
   align-items: center;
+  padding: 0 20px;
 `;

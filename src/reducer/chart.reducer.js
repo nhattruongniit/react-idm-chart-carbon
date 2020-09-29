@@ -1,7 +1,7 @@
 // import * as chartEditor from 'api/chartEditor.api';
 
 // mock api
-import { chartPie } from 'mockData';
+import { pieChart, lineChart } from 'mockData';
 
 // TYPES
 const FETCH_CHART_SUCCESS = 'CHART/FETCH_CHART_SUCCESS';
@@ -11,7 +11,7 @@ const FETCH_CHART_SUCCESS = 'CHART/FETCH_CHART_SUCCESS';
 export const fetchChart = () => async (dispatch) => {
   dispatch({
     type: FETCH_CHART_SUCCESS,
-    payload: chartPie,
+    payload: lineChart,
   });
 };
 

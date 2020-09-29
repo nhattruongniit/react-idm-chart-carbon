@@ -71,7 +71,7 @@ $ git reset --hard
 ## Scripts
 
 ```bash
-# dev server with PORT 3002 at http://localhost:3005
+# dev server with PORT 3002 at http://localhost:3009
 $ npm start
 
 # build for production with minify
