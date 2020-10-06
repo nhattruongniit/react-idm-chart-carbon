@@ -107,20 +107,24 @@ function organizeChartData(variables, variableValues) {
     let periodIndex = 0;
 
     while (periodInfo.periodLoopingCondition(periodDateTime) === true || periodIndex === 0) {
-      const periodChartData = {
+      let periodChartData = {
         date: moment(periodDateTime).format(periodInfo.dateFormat),
       };
 
       variables.forEach((variable, variableIndex) => {
         const value = variableValues[variableIndex][variableValueIndex] && variableValues[variableIndex][variableValueIndex].value;
-        periodChartData['group'] = variable.full_name;
-        periodChartData['value'] = Number(value) || 0;
+        periodChartData = {
+          ...periodChartData,
+          group: variable.full_name,
+          value: Number(value) || 0,
+        };
+        resultItem.chartData.push(periodChartData); // data for line chart carbon design
       });
 
       variableValueIndex++;
       periodDateTime = moment(periodDateTime).add(periodInfo.dateIncreaseValue, periodInfo.dateIncreaseType).toDate();
       periodIndex++;
-      resultItem.chartData.push(periodChartData);
+      // resultItem.chartData.push(periodChartData); data for rechartjs line chart
       currentDateTime = new Date(periodDateTime.getTime());
     }
 

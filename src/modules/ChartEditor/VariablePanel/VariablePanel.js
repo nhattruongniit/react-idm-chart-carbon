@@ -10,7 +10,6 @@ import CloseIcon from '@carbon/icons-react/es/close/16';
 
 // components
 import VariableList from './VariableList';
-import VariableSingle from './VariableSingle';
 import SelectField from 'components/SelectField';
 
 // actions
@@ -20,6 +19,9 @@ import { setFilter, resetFilter, togglePlottedVariable } from 'reducer/variables
 import { variablesSelector, plottedVariablesSelector, selectedPlottedSelector } from 'selectors/variables.selector';
 import { chartOptionTabSelector } from 'selectors/tabs.selector';
 import { chartTypeSelector } from 'selectors/chart.selector';
+
+// mock api
+import { variablesLineChart } from 'mockData';
 
 const types = ['all', 'food', 'meat'];
 
@@ -85,9 +87,9 @@ const VariablePanel = () => {
           )}
 
           {chartType === 'line' && (
-            <VariableSingle
+            <VariableList
               key={chartOptionTab.id}
-              variable={variables[0]}
+              variables={variablesLineChart}
               plottedVariables={plottedVariables}
               selectedPlotted={selectedPlotted}
               handleToggleVariable={handleToggleVariable}
