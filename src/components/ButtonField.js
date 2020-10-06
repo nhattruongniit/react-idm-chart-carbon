@@ -3,9 +3,9 @@ import React from 'react';
 // carbon core
 import { Button } from 'carbon-components-react';
 
-export default function ButtonField({ text, onClick }) {
+export default function ButtonField({ text, kind = 'tertiary', onClick }) {
   return (
-    <Button kind="tertiary" size="field" onClick={onClick}>
+    <Button kind={kind} size="field" onClick={onClick}>
       {text}
     </Button>
   );

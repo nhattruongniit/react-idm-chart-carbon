@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import CheckboxField from 'components/CheckboxField';
 
 // actions
-
 const VariablePanel = ({ variables, selectedPlotted, handleToggleVariable, checkboxName }) => {
   return (
     <VariableStyled>

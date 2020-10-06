@@ -10,6 +10,7 @@ import CloseIcon from '@carbon/icons-react/es/close/16';
 
 // components
 import VariableList from './VariableList';
+import VariableSingle from './VariableSingle';
 import SelectField from 'components/SelectField';
 
 // actions
@@ -18,6 +19,7 @@ import { setFilter, resetFilter, togglePlottedVariable } from 'reducer/variables
 // selector
 import { variablesSelector, plottedVariablesSelector, selectedPlottedSelector } from 'selectors/variables.selector';
 import { chartOptionTabSelector } from 'selectors/tabs.selector';
+import { chartTypeSelector } from 'selectors/chart.selector';
 
 const types = ['all', 'food', 'meat'];
 
@@ -27,6 +29,7 @@ const VariablePanel = () => {
   const plottedVariables = useSelector(plottedVariablesSelector);
   const selectedPlotted = useSelector(selectedPlottedSelector);
   const chartOptionTab = useSelector(chartOptionTabSelector);
+  const chartType = useSelector(chartTypeSelector);
 
   const onSearch = (value) => {
     if (value.trim() === '') {
@@ -68,15 +71,31 @@ const VariablePanel = () => {
       <br />
 
       <Search labelText="" placeHolderText="Search" light onChange={(e) => onSearch(e.target.value)} />
+      {chartType && (
+        <>
+          {chartType === 'pie' && (
+            <VariableList
+              key={chartOptionTab.id}
+              variables={variables}
+              plottedVariables={plottedVariables}
+              selectedPlotted={selectedPlotted}
+              handleToggleVariable={handleToggleVariable}
+              checkboxName="variable-panel-checkbox"
+            />
+          )}
 
-      <VariableList
-        key={chartOptionTab.id}
-        variables={variables}
-        plottedVariables={plottedVariables}
-        selectedPlotted={selectedPlotted}
-        handleToggleVariable={handleToggleVariable}
-        checkboxName="variable-panel-checkbox"
-      />
+          {chartType === 'line' && (
+            <VariableSingle
+              key={chartOptionTab.id}
+              variable={variables[0]}
+              plottedVariables={plottedVariables}
+              selectedPlotted={selectedPlotted}
+              handleToggleVariable={handleToggleVariable}
+              checkboxName="variable-panel-checkbox"
+            />
+          )}
+        </>
+      )}
     </ContainerStyled>
   );
 };

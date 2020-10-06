@@ -2,22 +2,30 @@ import { LOAD_INITIAL_STATE, RESTORE_STATE } from './tabs.reducer';
 
 // TYPES
 const SET_CHART_VALUES = 'CHART/SET_CHART_VALUES';
+const SET_ACTIVE_PAGE = 'CHART_VALUES/SET_ACTIVE_PAGE';
 
 // ACTIONS
 
 export const setChartValues = (chartValues, labels) => async (dispatch) => {
-  // const response = await chartEditor.fetchSingleChart(chartId);
-  // const chart = response.data.data;
-
   dispatch({
     type: SET_CHART_VALUES,
     payload: { chartValues, labels },
   });
 };
 
+export function setActivePage(activePage) {
+  return {
+    type: SET_ACTIVE_PAGE,
+    payload: {
+      activePage,
+    },
+  };
+}
+
 const initialState = {
   chartValues: [],
   labels: {},
+  activePage: 0,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -27,6 +35,12 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         chartValues: payload.chartValues,
         labels: payload.labels,
+      };
+    }
+    case SET_ACTIVE_PAGE: {
+      return {
+        ...state,
+        activePage: payload.activePage,
       };
     }
     case RESTORE_STATE: {

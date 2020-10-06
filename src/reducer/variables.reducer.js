@@ -5,9 +5,6 @@ import chroma from 'chroma-js';
 // helpers
 import { LOAD_INITIAL_STATE, RESTORE_STATE } from './tabs.reducer';
 
-// mock data
-import { variables } from 'mockData';
-
 // TYPES
 const FETCH_VARIABLES_START = 'VARIABLES/FETCH_VARIABLES_START';
 const FETCH_VARIABLES_SUCCESS = 'VARIABLES/FETCH_VARIABLES_SUCCESS';
@@ -19,8 +16,9 @@ const TOGGLE_PLOTTED_VARIABLE = 'VARIABLES/TOGGLE_PLOTTED_VARIABLE';
 // ACTIONS
 const fetchMock = async (data) => new Promise((resovle) => setTimeout(resovle(data), 3000));
 
-export const fetchVariables = () => async (dispatch) => {
+export const fetchVariables = (variables) => async (dispatch) => {
   const res = await fetchMock(variables);
+
   const units = uniq(res.map((item) => item.units));
   dispatch({ type: FETCH_VARIABLES_START });
 

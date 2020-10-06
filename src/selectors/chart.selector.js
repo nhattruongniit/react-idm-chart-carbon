@@ -11,3 +11,13 @@ export const chartLabelsSelector = createSelector(
   (state) => state.chartValues,
   (chartValues) => chartValues.labels,
 );
+
+export const activePageSelector = createSelector(
+  (state) => state.chartValues,
+  (chartValues) => chartValues.activePage,
+);
+
+export const chartTypeSelector = createSelector(
+  (state) => state.chart,
+  (chart) => chart.type,
+);

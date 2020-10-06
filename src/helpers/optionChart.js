@@ -40,6 +40,11 @@ export default function optionChart(chartType, chartOptionTab, chartLabels) {
             scaleType: 'linear',
           },
         },
+        color: {
+          scale: {
+            ...chartLabels,
+          },
+        },
         curve: 'curveMonotoneX',
       };
       break;

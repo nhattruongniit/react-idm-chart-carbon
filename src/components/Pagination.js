@@ -1,35 +1,58 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
-const SelectPage = ({ activePage, pageLabel, setActivePage, totalPages }) => {
-  const handlePreviousPage = () => {
-    if (activePage > 0) setActivePage(activePage - 1);
-  };
+// carbon core
+import { Select, SelectItem } from 'carbon-components-react';
 
-  const handleNextPage = () => {
-    if (activePage < totalPages - 1) setActivePage(activePage + 1);
-  };
+const pages = Array.from(String(12345), Number);
 
+export default function SelectPage() {
   return (
     <ContainerStyled>
-      <ArrowStyled onClick={handlePreviousPage}>
+      <ArrowStyled>
         <ButtonStyled direction="left" type="button" />
       </ArrowStyled>
-      <NumberStyled>{pageLabel}</NumberStyled>
-      <ArrowStyled onClick={handleNextPage}>
+      <SelectStyled>
+        <Select id="select-units" hideLabel light inline>
+          {pages.map((page, idx) => (
+            <SelectItem key={idx} value={page} text={page.toString()} />
+          ))}
+        </Select>
+      </SelectStyled>
+      <ArrowStyled>
         <ButtonStyled direction="right" type="button" />
       </ArrowStyled>
     </ContainerStyled>
   );
-};
-
-export default SelectPage;
+}
 
 const ContainerStyled = styled.div`
   position: relative;
   display: flex;
   justify-content: space-evenly;
+  width: 150px;
   margin: 0 auto;
+`;
+
+const SelectStyled = styled.div`
+  border-top: 1px solid #dfe3e6;
+  border-bottom: 1px solid #dfe3e6;
+
+  .bx--select,
+  .bx--select-input__wrapper,
+  .bx--select--light {
+    width: 100%;
+  }
+  .bx--select-input {
+    min-width: auto;
+    width: 4rem;
+    padding: 0 1rem;
+    color: #3d70b2;
+    font-weight: bold;
+  }
+  .bx--select__arrow {
+    fill: #3d70b2;
+  }
 `;
 
 const ArrowStyled = styled.div`
@@ -63,19 +86,4 @@ const ButtonStyled = styled.button`
       transform: rotate(-45deg);
       -webkit-transform: rotate(-45deg);
     `}
-`;
-
-const NumberStyled = styled.div`
-  width: auto;
-  border-top: solid 1px #dfe3e6;
-  border-bottom: solid 1px #dfe3e6;
-  padding: 10px 15px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.29;
-  text-align: left;
-  color: #3d70b2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
