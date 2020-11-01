@@ -5,6 +5,7 @@ import '@carbon/charts/styles.css';
 // components
 import PieChart from './PieChart';
 import LineChart from './LineChart';
+// import LineChartCanvasJS from './LineChartCanvasJS';
 
 // selectors
 import { chartSelector } from 'selectors/chart.selector';
@@ -18,6 +19,7 @@ const ChartCarbon = () => {
     <>
       {chart.type === 'pie' && <PieChart key={chartOptionTab.reRenderId} />}
       {chart.type === 'line' && <LineChart key={chartOptionTab.reRenderId} />}
+      {/* <LineChartCanvasJS /> */}
     </>
   );
 };
