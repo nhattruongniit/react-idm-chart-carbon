@@ -1,5 +1,9 @@
 import _ from 'lodash';
 
+
+// mock api
+import { variables } from 'mockData';
+
 import { fetchVariables } from './variables.reducer';
 
 // TYPES
@@ -39,7 +43,7 @@ export const addTab = () => (dispatch, getState) => {
   dispatch({ type: SAVE_STATE_DATA, payload: { tabId: currentTabId, saveState } });
   dispatch({ type: ADD_TAB });
   dispatch({ type: LOAD_INITIAL_STATE });
-  dispatch(fetchVariables(9));
+  dispatch(fetchVariables(variables));
 };
 
 export const switchTab = (tabId) => (dispatch, getState) => {

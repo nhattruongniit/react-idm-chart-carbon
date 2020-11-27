@@ -19,6 +19,8 @@ const fetchMock = async (data) => new Promise((resovle) => setTimeout(resovle(da
 export const fetchVariables = (variables) => async (dispatch) => {
   const res = await fetchMock(variables);
 
+  console.log(res)
+
   const units = uniq(res.map((item) => item.units));
   dispatch({ type: FETCH_VARIABLES_START });
 
