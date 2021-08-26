@@ -31,7 +31,8 @@ const ControlCenterPanel = () => {
 export default ControlCenterPanel;
 
 const ContainerStyled = styled.div`
-  width: 440px;
+  max-width: 440px;
+  min-width: 440px;
   height: 100%;
   padding: 20px 15px 0;
   background: #ffffff 0% 0% no-repeat padding-box;

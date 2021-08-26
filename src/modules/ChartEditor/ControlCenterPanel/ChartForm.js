@@ -110,8 +110,8 @@ const ChartForm = () => {
         )}
 
         <ActionField>
-          <ButtonField text="Apply" onClick={handleApply} />
           <ButtonField text="Reset" onClick={handleClear} />
+          <ButtonField text="Apply" onClick={handleApply} />
         </ActionField>
       </SectionStyled>
     </>
