@@ -10,6 +10,7 @@ import LineChart from './LineChart';
 // selectors
 import { chartSelector } from 'selectors/chart.selector';
 import { chartOptionTabSelector } from 'selectors/tabs.selector';
+import ViolinPlotChart from './ViolinPlotChart';
 
 const ChartCarbon = () => {
   const chart = useSelector(chartSelector);
@@ -19,6 +20,7 @@ const ChartCarbon = () => {
     <>
       {chart.type === 'pie' && <PieChart key={chartOptionTab.reRenderId} />}
       {chart.type === 'line' && <LineChart key={chartOptionTab.reRenderId} />}
+      {chart.type === 'violinPlot' && <ViolinPlotChart key={chartOptionTab.reRenderId} chart={chart} />}
       {/* <LineChartCanvasJS /> */}
     </>
   );

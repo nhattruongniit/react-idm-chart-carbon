@@ -1,17 +1,57 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { Select, SelectItem } from 'carbon-components-react';
 
 // components
 import Heading from './Heading';
 import ButtonField from 'components/ButtonField';
 
+// mock api
+import { pieChart, lineChart, violinPlot } from 'mockData';
+
+// actions
+import { fetchChart } from 'reducer/chart.reducer';
+
 export default function Header() {
+  const dispatch = useDispatch();
+  const [type, setType] = React.useState('violinPlot');
+
+  React.useEffect(() => {
+    let dataChart = {};
+
+    switch (type) {
+      case 'pie': {
+        dataChart = { ...pieChart };
+        break;
+      }
+      case 'line': {
+        dataChart = { ...lineChart };
+        break;
+      }
+      case 'violinPlot': {
+        dataChart = { ...violinPlot };
+        break;
+      }
+      default:
+        break;
+    }
+    dispatch(fetchChart(dataChart));
+  }, [type]);
+
   return (
     <HeaderStyled>
       <HeaderLogo>
         <Heading text="REACT CHART CARBON DESIGN" />
       </HeaderLogo>
-      <ButtonField kind="ghost" text="Reset Chart" onClick={() => window.location.reload()} />
+      <div className="flex">
+        <Select light inline defaultValue={type} id="select-chart-type" labelText="Chart Type" onChange={(e) => setType(e.target.value)}>
+          <SelectItem text="violin plot" value="violinPlot" />
+          <SelectItem text="pie" value="pie" />
+          <SelectItem text="line" value="line" />
+        </Select>
+        <ButtonField kind="ghost" text="Reset Chart" onClick={() => window.location.reload()} />
+      </div>
     </HeaderStyled>
   );
 }
