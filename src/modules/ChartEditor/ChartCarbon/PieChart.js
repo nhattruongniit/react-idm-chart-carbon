@@ -16,6 +16,12 @@ const PieChartCarbon = () => {
   const chartLabels = useSelector(chartLabelsSelector);
   const option = optionChart(chart.type, chartOptionTab, chartLabels);
 
+  console.log('pieChart: ', {
+    chartValues,
+    option,
+    chartOptionTab
+  })
+
   return <PieChart key={chartOptionTab.reRenderId} data={chartValues} options={option} />;
 };
 

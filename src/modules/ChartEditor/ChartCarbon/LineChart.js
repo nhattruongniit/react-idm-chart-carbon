@@ -33,6 +33,15 @@ const LineChartCarbon = () => {
     dispatch(setActivePage(number));
   };
 
+  console.log("lineChart: ", {
+    option,
+    chartOptionTab,
+    chartValuesLineChart,
+    activePage,
+    pageLabel,
+    totalPages
+  })
+
   return (
     <>
       {chartValuesLineChart.chartData.length > 0 && (
