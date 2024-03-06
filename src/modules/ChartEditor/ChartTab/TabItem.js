@@ -3,8 +3,7 @@ import styled, { css } from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 // carbon icon
-import CloseIcon from '@carbon/icons-react/es/close/16';
-import MenuIcon from '@carbon/icons-react/es/overflow-menu--vertical/16';
+import { Close, Menu } from '@carbon/icons-react';
 
 // components
 import TabItemPopover from './TabItemPopover';
@@ -26,9 +25,9 @@ const TabItem = ({ id, name, options, isActive }) => {
 
   return (
     <TabItemContainerStyled isActive={isActive}>
-      <PopoverButton icon={<MenuIcon />} popoverHeight="auto" content={<TabItemPopover tabId={id} options={options} />} popoverPosition="tabMenu" />
+      <PopoverButton icon={<Menu />} popoverHeight="auto" content={<TabItemPopover tabId={id} options={options} />} popoverPosition="tabMenu" />
       <TabNameStyled onClick={handleSetActiveTab}>{name}</TabNameStyled>
-      <CloseIcon onClick={handleCloseTab} />
+      <Close onClick={handleCloseTab} />
     </TabItemContainerStyled>
   );
 };

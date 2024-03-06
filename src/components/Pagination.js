@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 // carbon core
-import { Select, SelectItem } from 'carbon-components-react';
+import { Select, SelectItem } from '@carbon/react';
 
 const pages = Array.from(String(12345), Number);
 

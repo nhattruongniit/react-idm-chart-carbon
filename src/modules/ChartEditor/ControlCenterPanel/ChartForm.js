@@ -6,8 +6,7 @@ import styled from 'styled-components';
 import moment from 'moment';
 
 // carbon core
-import { SelectItem, DatePicker, DatePickerInput } from 'carbon-components-react';
-
+import { SelectItem, DatePicker, DatePickerInput } from '@carbon/react';
 // configs
 import * as CONSTANTS from 'configs/constant';
 

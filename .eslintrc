@@ -44,6 +44,8 @@
     "react/no-array-index-key": 0,
     "react/jsx-props-no-spreading": 0,
     "react/forbid-prop-types": 0,
-    "react-hooks/exhaustive-deps": 0
+    "react-hooks/exhaustive-deps": 0,
+    "react/jsx-no-bind": 0,
+    "no-unused-vars": 0
   }
 }

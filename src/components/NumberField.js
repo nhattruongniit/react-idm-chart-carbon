@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // carbon core
-import { NumberInput } from 'carbon-components-react';
+import { NumberInput } from '@carbon/react';
 
 export default function NumberField({ id, value, name, label, onChange, width }) {
   return (

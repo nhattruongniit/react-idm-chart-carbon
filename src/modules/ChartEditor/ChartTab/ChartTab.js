@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSelector, useDispatch } from 'react-redux';
 
 // carbon icons
-import AddIcon from '@carbon/icons-react/es/add/16';
+import { Add } from '@carbon/icons-react';
 
 // actions
 import { addTab } from 'reducer/tabs.reducer';
@@ -30,7 +30,7 @@ const ChartTab = ({ children }) => {
           <TabItem key={tabItem.id} id={tabItem.id} options={tabItem.options} name={tabItem.name} isActive={tabItem.id === activeTabId} />
         ))}
         <AddButton onClick={handleAddTab}>
-          <AddIcon />
+          <Add />
         </AddButton>
       </TabsContainer>
       <Content>{children}</Content>

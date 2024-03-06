@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // carbon core
-import { Select } from 'carbon-components-react';
+import { Select } from '@carbon/react';
 
 export default function SelectField({ id, labelText, children, width, onChange }) {
   return (

@@ -3,10 +3,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 // carbon core
-import { Search, SelectItem } from 'carbon-components-react';
+import { Search, SelectItem } from '@carbon/react';
 
 // carbon icon
-import CloseIcon from '@carbon/icons-react/es/close/16';
+import { Close } from '@carbon/icons-react';
 
 // components
 import VariableList from './VariableList';
@@ -59,7 +59,7 @@ const VariablePanel = () => {
       <HeaderStyled>
         <span>VARIABLES</span>
         <IconStyled>
-          <CloseIcon fill="var(--cds-text-02,#525252)" />
+          <Close fill="var(--cds-text-02,#525252)" />
         </IconStyled>
       </HeaderStyled>
 
@@ -72,7 +72,7 @@ const VariablePanel = () => {
       </FilterStyled>
       <br />
 
-      <Search labelText="" placeHolderText="Search" light onChange={(e) => onSearch(e.target.value)} />
+      <Search labelText="" light onChange={(e) => onSearch(e.target.value)} />
       {chartType && (
         <>
           {chartType === 'pie' && (

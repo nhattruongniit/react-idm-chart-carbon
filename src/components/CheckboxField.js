@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 // carbon core
-import { Checkbox } from 'carbon-components-react';
+import { Checkbox } from '@carbon/react';
 
 const CheckboxField = ({ id, labelText, onChange, bgColor, color, textEllipsis = false, ...props }) => {
   return (

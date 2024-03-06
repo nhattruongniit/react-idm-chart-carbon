@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { Select, SelectItem } from 'carbon-components-react';
+
+import { Select, SelectItem } from '@carbon/react';
 
 // components
 import Heading from './Heading';
@@ -15,7 +16,7 @@ import { fetchChart } from 'reducer/chart.reducer';
 
 export default function Header() {
   const dispatch = useDispatch();
-  const [type, setType] = React.useState('violinPlot');
+  const [type, setType] = React.useState('pie');
 
   React.useEffect(() => {
     let dataChart = {};

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // carbon core
-import { TimePicker } from 'carbon-components-react';
-
+import { TimePicker } from '@carbon/react';
 export default function TimePickerField({ id, labelText, placeholder, onChange }) {
   return (
     <TimeStyled>

@@ -2,8 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 // carbon icon
-import CloseIcon from '@carbon/icons-react/es/close/16';
-
+import { Close } from '@carbon/icons-react';
 // components
 
 import PlottedVariableList from './PlottedVariableList';
@@ -15,7 +14,7 @@ const ControlCenterPanel = () => {
       <HeaderStyled>
         <span>CONTROL CENTRE</span>
         <IconStyled>
-          <CloseIcon fill="var(--cds-text-02,#525252)" />
+          <Close fill="var(--cds-text-02,#525252)" />
         </IconStyled>
       </HeaderStyled>
 

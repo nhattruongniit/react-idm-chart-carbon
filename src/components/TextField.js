@@ -2,7 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 // carbon core
-import { TextInput } from 'carbon-components-react';
+
+import { TextInput } from '@carbon/react';
 
 export default function TextField({ id, value, labelText, width, hideLabel, ...props }) {
   return (
