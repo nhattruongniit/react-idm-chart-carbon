@@ -125,3 +125,7 @@ main {
 }
 
 /* end css chart */
+
+.cds--data-table-content tbody tr {
+  cursor: pointer;
+}

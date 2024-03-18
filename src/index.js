@@ -14,6 +14,8 @@ import store from 'store';
 
 // modules
 import App from './App';
+import Project from 'modules/Project/Project';
+import Layout from 'components/Layout';
 
 toast.configure();
 
@@ -21,7 +23,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Provider store={store}>
     <Router basename="/">
       <Switch>
-        <Route exact path="/" component={App} />
+        <Layout>
+          <Route exact path="/" component={Project} />
+          <Route exact path="/project/:id" component={App} />
+        </Layout>
       </Switch>
     </Router>
   </Provider>,

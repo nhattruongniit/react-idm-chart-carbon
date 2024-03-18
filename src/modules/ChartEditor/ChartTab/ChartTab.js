@@ -57,7 +57,6 @@ const TabsContainer = styled.div`
   align-items: center;
   flex-wrap: wrap;
   z-index: 50;
-  box-shadow: inset 0px -5px 10px 0px #d9ebfd;
   margin: 0 -10px;
 `;
 
